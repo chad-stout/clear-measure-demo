@@ -39,12 +39,11 @@ namespace ClearMeasureDemo.Tests
             Assert.NotEqual(expectedValues, result);
         }
 
-
         [Theory]
-        [InlineData(3, new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" })]
-        [InlineData(5, new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" })]
-        [InlineData(10, new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" })]
-        [InlineData(15, new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" })]
+        [InlineData(3, new[] { "1", "2", "Three" })]
+        [InlineData(5, new[] { "1", "2", "Three", "4", "Five" })]
+        [InlineData(10, new[] { "1", "2", "Three", "4", "Five", "Three", "7", "Eight", "ThreeNine", "Five" })]
+        [InlineData(15, new[] { "1", "2", "Three", "4", "Five", "Three", "7", "Eight", "ThreeNine", "Five", "11", "Three", "13", "14", "ThreeFive" })]
         public void ExecuteRules_ShouldNotEqualWithNullRules(int upperBound, string[] expectedValues)
         {
             var rickyBobby = new RickyBobby(null);
@@ -52,9 +51,5 @@ namespace ClearMeasureDemo.Tests
 
             Assert.NotEqual(expectedValues, result);
         }
-
-
-
-
     }
 }

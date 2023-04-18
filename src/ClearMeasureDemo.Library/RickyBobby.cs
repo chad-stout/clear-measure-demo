@@ -30,12 +30,15 @@ namespace ClearMeasureDemo.Library
             var result = new StringBuilder();
             var wasExecuted = false;
 
-            foreach(var rule in _rules) 
+            if (_rules != null)
             {
-                if (val % rule.Input == 0)
+                foreach (var rule in _rules)
                 {
-                    result.Append(rule.Output);
-                    wasExecuted = true;
+                    if (val % rule.Input == 0)
+                    {
+                        result.Append(rule.Output);
+                        wasExecuted = true;
+                    }
                 }
             }
 
